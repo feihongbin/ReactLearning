@@ -1,0 +1,7 @@
+.field-item{
+    margin: 10px;
+    text-decoration: underline;
+}
+.field-item .current-field {
+    text-decoration: none;
+}
