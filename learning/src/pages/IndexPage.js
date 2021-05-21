@@ -6,8 +6,9 @@ class IndexPage extends Component {
 
 
     render() {
-        const { curField, changeCourseField } = this.props; //才有这步 这两个参数都是connect里函数们的返回值
+        const { user,curField, changeCourseField } = this.props; //才有这步 这两个参数都是connect里函数们的返回值
         console.log(curField);
+        console.log(user);
         return (
             <div>
                 <Clock></Clock>
@@ -21,12 +22,13 @@ export default connect(
     function mapStateToProps(state) {//有了这步
         // 想要什么state就拿什么state
         return {
-            curField: state.courseTabList.curField
+            curField: state.courseTabList.curField,
+            user:state.courseTabList.user
         }
     },
     function mapDispatchToProps(dispatch) {
         return {
-            changeCourseField: (field) => dispatch(changeCourseField(field))
+            changeCourseField: (field,user) => dispatch(changeCourseField(field,user)) //要用action就必须dispatch
         }
     }
 
